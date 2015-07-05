@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['HOST'] = "localhost"
 app.config['DEBUG'] = True
 app.config['PORT'] = 5999
-app.config['STORAGE_FOLDER'] = '/home/cloo/store'
+app.config['STORAGE_FOLDER'] = '/home/mark/store'
 
 
 @app.route('/')
