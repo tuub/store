@@ -30,47 +30,26 @@ def storage(path=''):
 		else:
 			shutil.rmtree(dir)
 		return ''
-	elif request.method in ['POST','PUT'] or (request.method == 'GET' and request.args.get('url',False)):
-		if request.data:
-			data = request.data
-		else:
-			data = request.json if request.json else request.values
-			
-		if request.args.get('url',False):
-			try:
-				r = requests.get(url)
-				data = r.raw
-			except:
-				abort(400)
-
-		if len(data) == 0: data = False
-		if isinstance(data,dict) or isinstance(data,list):
-			data = json.dumps(data,indent=4)
-
+	elif request.method == 'PUT' and not os.path.exists(dir):
+		os.makedirs(dir)
+		return ''
+	elif request.method == 'POST':
 		try:
 			file = request.files['file']
-		except:
-			file = False
-					
-		if file:
-			try:
-				file.save(dir)
-				return ''
-			except:
-				abort(400)
-		elif data:
-			try:
-				out = open(dir, 'w')
-				out.write(data)
-				out.close()
-				return ''
-			except:
-				abort(400)
-		elif not os.path.exists(dir) and request.method == 'PUT':
-			os.makedirs(dir)
+			file.save(dir)
 			return ''
-		else:
-			abort(400)
+		except:
+			data = json.dumps( request.json if request.json else request.values )
+			if len(data) > 0:
+				try:
+					out = open(dir, 'w')
+					out.write(data)
+					out.close()
+					return ''
+				except:
+					abort(400)
+			else:
+				abort(400)
 			
 	elif request.method == 'GET':
 		if not os.path.exists(dir):
