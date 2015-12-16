@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['HOST'] = "localhost"
 app.config['DEBUG'] = False
 app.config['PORT'] = 5999
-APP.CONFIG['THREADED'] = True
+app.config['THREADED'] = True
 app.config['STORAGE_FOLDER'] = '/home/mark/store'
 
 file_handler = RotatingFileHandler('/home/mark/jperstorelog', maxBytes=1000000000, backupCount=5)
