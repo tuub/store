@@ -9,8 +9,9 @@ from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
 app.config['HOST'] = "localhost"
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
 app.config['PORT'] = 5999
+APP.CONFIG['THREADED'] = True
 app.config['STORAGE_FOLDER'] = '/home/mark/store'
 
 file_handler = RotatingFileHandler('/home/mark/jperstorelog', maxBytes=1000000000, backupCount=5)
@@ -83,5 +84,5 @@ if __name__ == "__main__":
         print 'Storage folder does not exist!'
         exit
     else:
-        app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=app.config['PORT'])
+        app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=app.config['PORT'], threaded=app.config['THREADED'])
 
