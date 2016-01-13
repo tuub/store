@@ -23,7 +23,7 @@ server {
 
     location /sword {
         rewrite ^/sword(.*) /$1 break;
-        proxy_pass http://localhost:5001;
+        proxy_pass http://localhost:5025;
         #proxy_pass_request_headers on;
         proxy_redirect off;
         proxy_set_header Host $host;
