@@ -9,6 +9,7 @@ server {
     proxy_read_timeout 600s;
 
     location /oaipmh {
+        rewrite ^/oaipmh(.*) /$1 break;
         proxy_pass http://localhost:5030;
         #proxy_pass_request_headers on;
         proxy_redirect off;
