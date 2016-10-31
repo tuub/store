@@ -12,9 +12,9 @@ app.config['HOST'] = "localhost"
 app.config['DEBUG'] = False
 app.config['PORT'] = 5999
 app.config['THREADED'] = True
-app.config['STORAGE_FOLDER'] = '/home/green/store'
+app.config['STORAGE_FOLDER'] = '/home/green/jperstore'
 
-file_handler = RotatingFileHandler('/home/green/jperstorelog', maxBytes=1000000000, backupCount=5)
+file_handler = RotatingFileHandler('/home/green/jperstorelog', maxBytes=10000000, backupCount=5)
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(Formatter(
     '%(asctime)s %(levelname)s: %(message)s '
