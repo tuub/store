@@ -9,7 +9,8 @@ setup(
         "Flask-Login==0.2.7",
         "Flask-WTF==0.9.3",
         "Werkzeug==0.9.4",
-        "requests==2.1.0"
+        # "requests==2.1.0"
+        "requests"
     ],
     url = 'http://cottagelabs.com/',
     author = 'Cottage Labs',
