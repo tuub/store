@@ -81,8 +81,8 @@ def storage(path=''):
 
 if __name__ == "__main__":
     if not os.path.exists(app.config['STORAGE_FOLDER']):
-        print 'Storage folder does not exist!'
-        exit
+        print('Storage folder does not exist!')
+        exit()
     else:
         app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=app.config['PORT'], threaded=app.config['THREADED'])
 
