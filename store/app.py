@@ -1,20 +1,23 @@
 
-import os, requests, json, uuid, shutil
+import os
+import requests
+import json
+import uuid
+import shutil
 
 from flask import Flask, request, send_file, abort, make_response, logging
 
 from logging import Formatter
 from logging.handlers import RotatingFileHandler
 
-
 app = Flask(__name__)
 app.config['HOST'] = "localhost"
 app.config['DEBUG'] = False
 app.config['PORT'] = 5999
 app.config['THREADED'] = True
-app.config['STORAGE_FOLDER'] = '/home/green/jperstore'
+app.config['STORAGE_FOLDER'] = '/home/green/jper_store'
 
-file_handler = RotatingFileHandler('/home/green/jperstorelog', maxBytes=10000000, backupCount=5)
+file_handler = RotatingFileHandler('/home/green/jper_store_log', maxBytes=10000000, backupCount=5)
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(Formatter(
     '%(asctime)s %(levelname)s: %(message)s '

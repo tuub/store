@@ -5,11 +5,10 @@ setup(
     version = '0.0.1',
     packages = find_packages(),
     install_requires = [
-        "Flask==0.10.1",
-        "Flask-Login==0.2.7",
-        "Flask-WTF==0.9.3",
-        "Werkzeug==0.9.4",
-        # "requests==2.1.0"
+        "Flask==1.11.1",
+        "Flask-Login==0.4.1",
+        "Flask-WTF==0.14.2",
+        "Werkzeug==0.16.0",
         "requests"
     ],
     url = 'http://cottagelabs.com/',
